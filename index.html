@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Terrorism in the E.U. </title>
+    <link rel="stylesheet" href="./styles/style01.css">
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="./multiseries.js"></script>
+    
+</head>
+<body>
+    <div>
+        <div><h1 id="main-title"> Terrorism in the E.U. (1970-2016) </h1>
+        </div>
+            <table>
+                <tr>
+                    <td>
+                        <div id="selectioncontainer1" class="selectioncontainer">            
+                            <ul id="column1"  class="column" type="none">
+                                <li id="li-AUT"> <input class="checkbox-country" id="checkbox-AUT" name="AUT" type="checkbox">  Austria         </li>
+                                <li id="li-BEL"> <input class="checkbox-country" id="checkbox-BEL" name="BEL" type="checkbox">  Belgium         </li>
+                                <li id="li-BGR"> <input class="checkbox-country" id="checkbox-BGR" name="BGR" type="checkbox">  Bulgaria        </li>
+                                <li id="li-HRV"> <input class="checkbox-country" id="checkbox-HRV" name="HRV" type="checkbox">  Croatia         </li>
+                                <li id="li-CYP"> <input class="checkbox-country" id="checkbox-CYP" name="CYP" type="checkbox">  Cyprus          </li>
+                                <li id="li-CZE"> <input class="checkbox-country" id="checkbox-CZE" name="CZE" type="checkbox">  Czech Repuclic  </li>     
+                                <li id="li-DNK"> <input class="checkbox-country" id="checkbox-DNK" name="DNK"  type="checkbox"> Denmark          </li>
+                                <li id="li-EST"> <input class="checkbox-country" id="checkbox-EST" name="EST"  type="checkbox"> Estonia          </li>
+                                <li id="li-FIN"> <input class="checkbox-country" id="checkbox-FIN" name="FIN"  type="checkbox"> Finland        </li>
+                                <li id="li-FRA"> <input class="checkbox-country" id="checkbox-FRA" name="FRA"  type="checkbox"> France           </li>
+                                <li id="li-DEU"> <input class="checkbox-country" id="checkbox-DEU" name="DEU"  type="checkbox"> Germany          </li>
+                                <li id="li-GRC"> <input class="checkbox-country" id="checkbox-GRC" name="GRC"  type="checkbox"> Greece           </li>   
+                                <li id="li-HUN"> <input class="checkbox-country" id="checkbox-HUN" name="HUN"  type="checkbox"> Hungary          </li>
+                                <li id="li-IRL"> <input class="checkbox-country" id="checkbox-IRL" name="IRL"  type="checkbox"> Ireland          </li>
+                                <li id="li-ITA"> <input class="checkbox-country" id="checkbox-ITA" name="ITA"  type="checkbox"> Italy            </li>                
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="svgcontainer"></div> 
+                    </td>
+                    <td>
+                        <div id="selectioncontainer2" class="selectioncontainer">
+                            <ul id="colum2"  class="column"  type="none">                      
+                                <li id="li-LVA"> <input class="checkbox-country" id="checkbox-LVA" name="LVA"  type="checkbox"> Latvia           </li>
+                                <li id="li-LTU"> <input class="checkbox-country" id="checkbox-LTU" name="LTU"  type="checkbox"> Lithuania        </li>
+                                <li id="li-LUX"> <input class="checkbox-country" id="checkbox-LUX" name="LUX"  type="checkbox"> Luxemburgo       </li>
+                                <li id="li-MLT"> <input class="checkbox-country" id="checkbox-MLT" name="MLT"  type="checkbox"> Malta            </li>
+                                <li id="li-NLD"> <input class="checkbox-country" id="checkbox-NLD" name="NLD"  type="checkbox"> Netherlands      </li>
+                                <li id="li-POL"> <input class="checkbox-country" id="checkbox-POL" name="POL"  type="checkbox"> Poland           </li>
+                                <li id="li-PRT"> <input class="checkbox-country" id="checkbox-PRT" name="PRT"  type="checkbox"> Portugal         </li>
+                                <li id="li-ROU"> <input class="checkbox-country" id="checkbox-ROU" name="ROU"  type="checkbox"> Romania          </li>
+                                <li id="li-SVK"> <input class="checkbox-country" id="checkbox-SVK" name="SVK"  type="checkbox"> Slovakia         </li>  
+                                <li id="li-SVN"> <input class="checkbox-country" id="checkbox-SVN"  name="SVN"  type="checkbox"> Slovenia       </li>
+                                <li id="li-ESP"> <input class="checkbox-country" id="checkbox-ESP"  name="ESP"  type="checkbox"> Spain          </li>
+                                <li id="li-SWE"> <input class="checkbox-country" id="checkbox-SWE"  name="SWE"  type="checkbox"> Sweden         </li>
+                                <li id="li-GBR"> <input class="checkbox-country" id="checkbox-GBR"  name="GBR"  type="checkbox"> Great Britain  </li> 
+                                <li id="li-EUR"> <input class="checkbox-country" id="checkbox-EUR"  name="EUR"  type="checkbox"> Avg. E.U.</li>
+                                <li> <input id="checkbox-EUR" type="checkbox" style="opacity:0"></li>
+                            </ul>          
+                        </div>
+                    </td>
+                </tr>
+            </table>              
+        <div id="butttoncontainer1">
+            <div id="buttoncontainer2"> 
+                <input id="button-select-countries" class="button" type="button" value="Hide selection">
+                <input id="button-uncheck-all" class="button" type="button" value="Uncheck all">
+            </div>    
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,76 @@
+
+
+#main-title {
+    text-align: center;
+    font-size:17pt;
+    font-family: 'Calibri';
+    margin-bottom: 0;
+    /*color:rgb(46, 101, 165);*/
+}
+
+li {
+    font-size: 11pt;
+    font-family:"Arial";    
+}
+
+#svgcontainer {
+    margin-left:0%;
+    border-radius: 2%;
+}
+
+/* ________ BUTTONS _________*/
+
+.button {
+    background-color: rgb(71, 163, 74); /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    padding-top:6px;
+    padding-bottom: 6px;
+    font-weight: 500;
+    border-radius: 5px;
+    width:110px;
+}
+
+.button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#buttoncontainer1 {
+    display: inline-block;
+}
+
+#buttoncontainer2 {
+   text-align: center;
+}
+
+
+
+/*_______________ Country selection  DIVS ________________ */
+
+ul {
+    padding-left:25px;
+}
+
+.selectioncontainer {
+    display:block;
+    border: solid 2px gray;
+    border-radius: 4%;
+}
+
+#selectioncontainer1 {
+    padding-right:30px;
+    margin-right: 30px;
+}
+
+#selectioncontainer2 {
+    padding-right:50px;
+    margin-left:40px;
+}
+
+.checkbox-country:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.44), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
