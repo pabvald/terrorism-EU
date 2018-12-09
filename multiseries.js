@@ -11,24 +11,34 @@
                    "ESP":'rgb( 88, 45, 63)'  
                 };
 
- const MONTHS_NAMES = { 1 : "January", 2 : "Frebruary", 3 : "March", 4 : "April", 5 : "May", 6 : "June",
+/* Historical events */
+const MONTHS_NAMES = { 1 : "January", 2 : "Frebruary", 3 : "March", 4 : "April", 5 : "May", 6 : "June",
                         7 : "July", 8 : "August", 9 : "September", 10 : "October", 11 : "Nomvember", 12 : "December"
                       };
-
  const EVENS_DEFAULT_COLOR = "grey";
  const EVENTS_OVER_COLOR = "red";
  const EVENTS_DEFAULT_OPACITY = 0.4;
  const EVENTS_POINTS_Y = -15;
  const EVENTS_DESCRIPTION_Y = -40;
  const EVENTS_DATE_Y = -25;
+ const DATE_SIZE = "8px";
  
+/* Lines & points */
  const HIDDEN_OPACITY = 0.3;
  const LINES_WIDTH = 1.8;
- const NAMES_SIZE = "9px";
- const DATE_SIZE = "8px";
  const POINT_RADIUS = 2.2;
+
+ /* Country names */
+ const NAMES_SIZE = "9px"; 
  const TAB_SIZE= 25;  
 
+ /* Info-boxes */
+ const INFOBOX_WIDTH = 80;
+ const INFOBOX_HEADER_H = 20;
+ const INFOBOX_BODY_H = 40;
+ const INFOBOX_TEXT_SIZE = "10px";
+
+ /* SVG */
  const X_MARGIN_RIGHT = 90;
  const X_MARGIN_LEFT = 50;
  const Y_MARGIN_TOP = 60;
@@ -285,22 +295,23 @@ function drawMultiseries(container, width, height, countries) {
                                     let variationStr = formatVariation(variation);
                                     let infobox = svg.append("g").attr("class","info-box");
                         
-                                    infobox.append("rect").attr("x",x(year)).attr("y",y(incidents)-60)
-                                                        .attr("height",20).attr("width",80)
-                                                        .style("fill","white").style("stroke","black");
+                                    infobox.append("rect").attr("x",x(year)).attr("y",y(incidents)-(INFOBOX_HEADER_H+INFOBOX_BODY_H))
+                                            .attr("height",INFOBOX_HEADER_H).attr("width",INFOBOX_WIDTH)
+                                            .style("fill","white").style("stroke","black");
                                     infobox.append("text").text(code+" - "+year).attr("x",x(year)+10).attr("y", y(incidents)-45)
-                                                        .style("font-size","9px");
-                                    infobox.append("rect").attr("x",x(year)).attr("y",y(incidents)-40).attr("height",40)
-                                                        .attr("width",80).style("fill","white").style("stroke","black");
+                                            .style("font-size",INFOBOX_TEXT_SIZE);
+                                    infobox.append("rect").attr("x",x(year)).attr("y",y(incidents)-INFOBOX_BODY_H)
+                                            .attr("height",INFOBOX_BODY_H).attr("width",INFOBOX_WIDTH)
+                                            .style("fill","white").style("stroke","black");
                                     infobox.append("text").text(incidents+" incidents").attr("x",x(year)+10)
-                                                        .attr("y", y(incidents)-23).style("font-size","9px");
+                                            .attr("y", y(incidents)-23).style("font-size",INFOBOX_TEXT_SIZE);
                                     infobox.append("text").text(variationStr).attr("x",x(year)+10).attr("y", y(incidents)-10)
-                                                        .style("font-size","9px")
-                                                        .style("fill", function() {
-                                                                if(variation < 0) { return "green";}
-                                                                else if (variation > 0) { return "red"; }                               
-                                                                else { return "orange"};
-                                                        });
+                                            .style("font-size",INFOBOX_TEXT_SIZE)
+                                            .style("fill", function() {
+                                                    if(variation < 0) { return "green";}
+                                                    else if (variation > 0) { return "red"; }                               
+                                                    else { return "orange"};
+                                            });
                                 
                                 });
 
