@@ -1,13 +1,11 @@
-# Evolución del terrorismo en la Unión Europea (1970 -2016)
+# Evolution of terrorism in the European Union (1970 -2016)
 
-Gráfico lineal interactivo que muestra la evolución del terrorismo en la Unión Europea desde 1970 hasta 2016. Además de mostrar la evolución 
-del terrorismo en los 28 países de la U.E. en dicho período, también muestra una serie de hechos históricos que han podido influir en los 
-ataques terroristas en estos países.
+Interactive linear graphic which shows the evolution of terrorist attacks in the European Union from 1970 to 2016. The graphic intends to show how certain historical events (democratic transitions, wars, etc.) are linked to the increase or decrease of terrorism in certain countries of the E.U.
 
-## Datos
+## Data
 
-Los datos relevantes a la evolución de los incidentes terroristas han sido obtenidos de _ourworldindata.org_.( [Visitar web](https://ourworldindata.org/terrorism#modern-terrorism-after-the-second-world-war))
+Data regarding the evolution of terrorist has been collected from the web page _ourworldindata.org_.( [Visit web](https://ourworldindata.org/terrorism#modern-terrorism-after-the-second-world-war))
 
-## Visualización
+## Visualization
 
-[Ver visualización](https://desi_18-19.pages.gitlab.inf.uva.es/evolucion_terrorismo_ue_1970-2016/) (preferiblemente en Firefox)
+[See graphic](https://desi_18-19.pages.gitlab.inf.uva.es/evolucion_terrorismo_ue_1970-2016/) (preferiblemente en Firefox)
