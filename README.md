@@ -8,4 +8,4 @@ Data regarding the evolution of terrorist has been collected from the web page _
 
 ## Visualization
 
-[See graphic](https://desi_18-19.pages.gitlab.inf.uva.es/evolucion_terrorismo_ue_1970-2016/) (preferiblemente en Firefox)
+[See graphic](https://pabvald.github.io/terrorism_in_the_EU/) (Firefox is preferred)
