@@ -1,6 +1,6 @@
 # Evolution of terrorism in the European Union (1970 -2016)
 
-Interactive linear graphic which shows the evolution of terrorist attacks in the European Union from 1970 to 2016. The graphic intends to show how certain historical events (democratic transitions, wars, etc.) are linked to the increase or decrease of terrorism in certain countries of the E.U.
+Interactive linear graphic which shows the evolution of terrorist attacks in the European Union from 1970 to 2016. The graphic intends to show how certain historical events (democratic transitions, wars, etc.) are linked to the increase or decrease of terrorist incidents in certain countries of the E.U.
 
 ## Data
 
