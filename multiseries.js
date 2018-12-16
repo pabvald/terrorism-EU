@@ -1,4 +1,7 @@
- 
+/*
+ * Author: pabvald
+ * Date: 10/12/2018
+ */
  
  /* Countries COLOURS */
  const COLOURS = { "EUR":'rgb(0,0,0)',        "AUT":'rgb(198,27,27)',     "BEL":'rgb( 85, 21, 172 )',  "BGR":'rgb(36, 137, 128)',
@@ -7,7 +10,7 @@
                    "GRC":'rgb(84, 103, 163)', "HUN":'rgb( 88, 24, 69)',   "IRL":'rgb( 144, 12, 63 )',  "ITA":'rgb( 122, 162, 9 )',
                    "LVA":'rgb( 40, 55, 71 )', "LTU":'rgb( 39, 174, 96)',  "LUX":'rgb( 160, 64, 0)',    "SWE":'rgb( 97, 106, 107 )',
                    "MLT":'rgb( 233, 80, 56)', "NLD":'rgb( 254, 0, 73)',   "POL":'rgb( 26, 82, 118)',   "PRT":'rgb(  86, 11, 13 )',  
-                   "GBR":'rgb(0, 255, 128)',  "ROU":'rgb( 84, 64, 46 )',  "SVK":'rgb( 201, 0, 186)',   "SVN":'rgb(162, 115, 9)', 
+                   "GBR":'rgb(0, 195, 192)',  "ROU":'rgb( 84, 64, 46 )',  "SVK":'rgb( 201, 0, 186)',   "SVN":'rgb(162, 115, 9)', 
                    "ESP":'rgb( 88, 45, 63)'  
                 };
 
@@ -15,13 +18,15 @@
 const MONTHS_NAMES = { 1 : "January", 2 : "Frebruary", 3 : "March", 4 : "April", 5 : "May", 6 : "June",
                         7 : "July", 8 : "August", 9 : "September", 10 : "October", 11 : "Nomvember", 12 : "December"
                       };
- const EVENS_DEFAULT_COLOR = "grey";
- const EVENTS_OVER_COLOR = "red";
+ const EVENTS_MARKS_DEF_COLOR= "grey";
+ const EVENTS_MARKS_OVER_COLOR = "red";
+ const EVENTS_TEXT_COLOR = "rgb( 255, 0,0)";
  const EVENTS_DEFAULT_OPACITY = 0.4;
  const EVENTS_POINTS_Y = -15;
  const EVENTS_DESCRIPTION_Y = -40;
  const EVENTS_DATE_Y = -25;
- const DATE_SIZE = "8px";
+ const DATE_SIZE = "7pt";
+ const DESCRIPTION_SIZE = "9pt";
  
 /* Lines & points */
  const HIDDEN_OPACITY = 0.3;
@@ -29,15 +34,15 @@ const MONTHS_NAMES = { 1 : "January", 2 : "Frebruary", 3 : "March", 4 : "April",
  const POINT_RADIUS = 2.2;
 
  /* Country names */
- const NAMES_SIZE = "9px"; 
+ const NAMES_SIZE = "6.5pt"; 
  const TAB_SIZE= 25;  
 
  /* Info-boxes */
- const INFOBOX_WIDTH = 80;
+ const INFOBOX_WIDTH = 90;
  const INFOBOX_HEADER_H = 20;
  const INFOBOX_BODY_H = 40;
  const INFOBOX_TEXT_SIZE = "10px";
-
+ const INFOBOX_BACKG_COLOR = "white"; //"rgb(242, 242, 239)";
  /* SVG */
  const X_MARGIN_RIGHT = 90;
  const X_MARGIN_LEFT = 50;
@@ -118,7 +123,7 @@ function drawMultiseries(container, width, height, countries) {
                              })
                              .attr("y1",EVENTS_POINTS_Y)
                              .attr("y2",y(0))
-                             .style("stroke",EVENS_DEFAULT_COLOR)
+                             .style("stroke",EVENTS_MARKS_DEF_COLOR)
                              .style("opacity",EVENTS_DEFAULT_OPACITY);
 
 
@@ -136,7 +141,7 @@ function drawMultiseries(container, width, height, countries) {
                                })          
                                .attr("cy",EVENTS_POINTS_Y) 
                                .attr("r","4px")
-                               .style("fill",EVENS_DEFAULT_COLOR)
+                               .style("fill",EVENTS_MARKS_DEF_COLOR)
                                .style("opacity",EVENTS_DEFAULT_OPACITY)
                                .on("mouseover", onMouseoverEvents)
                                .on("mouseout", onMouseoutEvents); 
@@ -158,9 +163,9 @@ function drawMultiseries(container, width, height, countries) {
                                 .text(function(d) {
                                     return d.Event+"";
                                 })
-                                .style("fill", "red")
-                                .style("font-family","Sans Serif")
-                                .style("font-size",NAMES_SIZE)
+                                .style("fill",EVENTS_TEXT_COLOR)
+                                .style("font-family","Arial")
+                                .style("font-size",DESCRIPTION_SIZE)
                                 .style("opacity",0);
 
         var events_dates = svg.append("g").attr("id", "events-dates");
@@ -180,8 +185,8 @@ function drawMultiseries(container, width, height, countries) {
                                 .text(function(d) {
                                     return MONTHS_NAMES[+d.Month]+", "+d.Year;
                                 })
-                                .style("fill", "red")
-                                .style("font-family","Times")
+                                .style("fill", EVENTS_TEXT_COLOR)
+                                .style("font-family","Arial")
                                 .style("font-size",DATE_SIZE)
                                 .style("opacity",0);
 
@@ -212,7 +217,7 @@ function drawMultiseries(container, width, height, countries) {
                                     return "name-"+d.Code;
                                 })                                                            
                                 .attr("x",function(d) {                                    
-                                    let tabs = getTabs(lastYearData,""+d.Code,+d.Incidents);
+                                    let tabs = getTabs(lastYearData,""+d.Code,+d.Incidents,Math.abs(y(1) - y(2)));
                                     return x(2016) + tabs*TAB_SIZE;})
                                 .attr("y", function(d) {
                                     return y(+d.Incidents);
@@ -297,12 +302,12 @@ function drawMultiseries(container, width, height, countries) {
                         
                                     infobox.append("rect").attr("x",x(year)).attr("y",y(incidents)-(INFOBOX_HEADER_H+INFOBOX_BODY_H))
                                             .attr("height",INFOBOX_HEADER_H).attr("width",INFOBOX_WIDTH)
-                                            .style("fill","white").style("stroke","black");
+                                            .style("fill",INFOBOX_BACKG_COLOR).style("stroke","black");
                                     infobox.append("text").text(code+" - "+year).attr("x",x(year)+10).attr("y", y(incidents)-45)
                                             .style("font-size",INFOBOX_TEXT_SIZE);
                                     infobox.append("rect").attr("x",x(year)).attr("y",y(incidents)-INFOBOX_BODY_H)
                                             .attr("height",INFOBOX_BODY_H).attr("width",INFOBOX_WIDTH)
-                                            .style("fill","white").style("stroke","black");
+                                            .style("fill",INFOBOX_BACKG_COLOR).style("stroke","black");
                                     infobox.append("text").text(incidents+" incidents").attr("x",x(year)+10)
                                             .attr("y", y(incidents)-23).style("font-size",INFOBOX_TEXT_SIZE);
                                     infobox.append("text").text(variationStr).attr("x",x(year)+10).attr("y", y(incidents)-10)
@@ -375,8 +380,8 @@ function onMouseoverEvents () {
    let date_id = "#event-date-"+pieces[2];
    let date = d3.select(date_id);
  
-   point.style("opacity",1).style("fill",EVENTS_OVER_COLOR);
-   line.style("opacity",1).style("stroke",EVENTS_OVER_COLOR);
+   point.style("opacity",1).style("fill",EVENTS_MARKS_OVER_COLOR);
+   line.style("opacity",1).style("stroke",EVENTS_MARKS_OVER_COLOR);
    description.style("opacity",1);
    date.style("opacity",1);
 
@@ -391,8 +396,8 @@ function onMouseoutEvents() {
     let descriptions = d3.selectAll(".event-description");
     let dates = d3.selectAll(".event-date");
 
-    points.style("opacity",EVENTS_DEFAULT_OPACITY).style("fill",EVENS_DEFAULT_COLOR);
-    lines.style("opacity",EVENTS_DEFAULT_OPACITY).style("stroke",EVENS_DEFAULT_COLOR);
+    points.style("opacity",EVENTS_DEFAULT_OPACITY).style("fill",EVENTS_MARKS_DEF_COLOR);
+    lines.style("opacity",EVENTS_DEFAULT_OPACITY).style("stroke",EVENTS_MARKS_DEF_COLOR);
     descriptions.style("opacity",0);
     dates.style("opacity",0);
 }
@@ -425,9 +430,10 @@ function setCountriesNamesColours() {
  * @param {*} data countrie's data
  * @param {*} code a three-letter code
  * @param {*} incidents number of incidents 
+ * @param {*} scale
  */
-function getTabs(data,code,incidents) {
-    let margin = 5;
+function getTabs(data,code,incidents,scale) {
+    let margin = 5*scale;
     let tabs = 1;
     let itsSelfFound = false;
     

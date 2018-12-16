@@ -1,4 +1,11 @@
+/*
+ * Author: pabvald
+ * Date: 10/12/2018
+ */
 
+/** 
+ * Draws the graphic every time a country (or all) is checked or unchecked.
+ */
 $(document).ready(function() {
     let selection_hidden = false;
 
@@ -8,7 +15,7 @@ $(document).ready(function() {
     drawMultiseries("#svgcontainer",700,420, countries);
 
     /*
-     * Handles the checking or unchecking of a country.
+     * Handles the checking or unchecking of a single country.
      */
     $("input[type=checkbox]").change(function () { 
 
@@ -23,27 +30,8 @@ $(document).ready(function() {
     });
 
     
-    /*     
-     * Handles the 'click' event on the button "Hide/Show selection". 
-     */
-    d3.selectAll("#button-select-countries").on("click", function() {
-
-        if(selection_hidden) {
-            d3.selectAll(".selectioncontainer").transition().duration(1000).style("display","block");
-            d3.select("#svgcontainer").style("margin-left","0%");
-            d3.select(".button").attr("value","Hide selection")
-            selection_hidden = false;
-        } else {
-            d3.selectAll(".selectioncontainer").transition().duration(1000).style("display","none");
-            d3.select("#svgcontainer").style("margin-left","25.5%");
-            d3.select(".button").attr("value","Show selection")
-            selection_hidden = true;
-        }
-            
-    });
-
     /*
-     *  Handles the 'click' event on the button "Uncheck all" 
+     *  Handles the 'click' event on the button "Uncheck all (countries)" 
      */
     d3.selectAll("#button-uncheck-all").on("click", function () {
         countries = [];
