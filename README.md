@@ -6,8 +6,8 @@ Interactive linear graphic which shows the evolution of terrorist attacks in the
 
 ## Data
 
-Data regarding the evolution of terrorism has been collected from the web page _ourworldindata.org_.( [Visit web](https://ourworldindata.org/terrorism#modern-terrorism-after-the-second-world-war))
+Data regarding the evolution of terrorism has been collected from the web page _ourworldindata.org_.([Visit web](https://ourworldindata.org/terrorism#modern-terrorism-after-the-second-world-war))
 
 ## Visualization
 ![Preview](images/preview.png)
-[See graphic](https://pabvald.github.io/terrorism_in_the_EU/) (Firefox is preferred)
+[See graphic](https://pabvald.github.io/terrorism-EU/) (Firefox is preferred)
