@@ -10,4 +10,4 @@ Data regarding the evolution of terrorism has been collected from the web page _
 
 ## Visualization
 ![Preview](images/preview.png)
-[See graphic](https://pabvald.github.io/terrorism-EU/) (Firefox is preferred)
+[See graphic]( https://pabvald.github.io/terrorism-eu/) (Firefox is preferred)
